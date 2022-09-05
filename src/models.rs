@@ -5,7 +5,7 @@ pub struct Dot {
     pub radius: f32,
     pub shrinking_point: f32,
     pub stopping_point: f32,
-    pub color: Hsla,
+    pub color: Rgba,
 }
 
 pub struct Dots {
@@ -44,12 +44,7 @@ impl Dots {
             let stopping_point = boundary.bottom() + random_range(5.0, 20.0);
             let shrinking_point = boundary.bottom() + random_range(50.0, 100.0);
 
-            let p = Perlin::new();
-            let noise = p.get([pos[0] as f64, pos[1] as f64]);
-
-            let ranged_hue = map_range(noise, 0.0, 1.0, 0.0, 0.2);
-
-            let color = hsla(ranged_hue as f32, 1.0, 0.5, 1.0);
+            let color = rgba(0.863, 0.078, 0.235, random_range(0.0, 1.0));
 
             let dot = Dot {
                 pos,

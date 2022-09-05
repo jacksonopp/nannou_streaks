@@ -4,8 +4,8 @@ fn main() {
     nannou::app(model).event(event).run();
 }
 
-mod model;
-use model::{Model, create_model};
+mod models;
+use models::{Model, create_model};
 
 mod events;
 
